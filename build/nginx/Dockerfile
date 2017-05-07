@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:stable-alpine
 
 LABEL maintainer "Jan Cyril Segubience <jancyril@segubience.com>"
 

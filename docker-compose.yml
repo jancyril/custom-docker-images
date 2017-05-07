@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: jancyril/nginx:latest
+    image: jancyril/nginx:stable-alpine
     ports:
     - "80:80"
     volumes:
@@ -19,7 +19,7 @@ services:
     networks:
     - appnet
   node:
-    image: node:6-slim
+    image: jancyril/node:stable-alpine
     volumes:
     - /home/jancyril/Code/jcms:/var/www/html
     networks:
