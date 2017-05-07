@@ -3,32 +3,39 @@ services:
   nginx:
     image: jancyril/nginx:latest
     ports:
-     - "80:80"
+    - "80:80"
     volumes:
-     - ./application:/var/www/html
+    - /home/jancyril/Code/jcms:/var/www/html
     networks:
-     - appnet
+    - appnet
   php:
     image: jancyril/php:7.1
     volumes:
-     - ./application:/var/www/html
+    - /home/jancyril/Code/jcms:/var/www/html
     networks:
-     - appnet
+    - appnet
   redis:
     image: redis:alpine
     networks:
-     - appnet
+    - appnet
+  node:
+    image: node:6-slim
+    volumes:
+    - /home/jancyril/Code/jcms:/var/www/html
+    networks:
+    - appnet
+    tty: true
   db:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: homestead
+      MYSQL_DATABASE: jcms
       MYSQL_USER: homestead
       MYSQL_PASSWORD: secret
     volumes:
-     - data:/var/lib/mysql
+    - data:/var/lib/mysql
     networks:
-     - appnet
+    - appnet
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
