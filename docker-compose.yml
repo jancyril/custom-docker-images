@@ -9,7 +9,7 @@ services:
     networks:
     - appnet
   php:
-    image: jancyril/php:7.1
+    image: jancyril/php:7.1-latest
     volumes:
     - /home/jancyril/Code/jcms:/var/www/html
     networks:
