@@ -52,6 +52,20 @@ services:
       MYSQL_PASSWORD: secret
     networks:
     - appnet
+  ungit:
+    image: jancyril/ungit
+    ports:
+      - "8448:8448"
+    environment:
+      GIT_AUTHOR_NAME: Jan Cyril Segubience
+      GIT_AUTHOR_EMAIL: jancyrilsegubience@gmail.com
+      GIT_COMMITTER_NAME: Jan Cyril Segubience
+      GIT_COMMITTER_EMAIL: jancyrilsegubience@gmail.com
+    volumes:
+      - /home/jancyril/Code/jcms:/var/www
+      - /home/jancyril/.ssh:/root/.ssh
+    networks:
+      - appnet
 networks:
   appnet:
     driver: "bridge"
