@@ -1,11 +1,12 @@
-FROM alpine:3.4
+FROM php:7.1-alpine
 
 LABEL maintainer Jan Cyril Segubience <jancyril@segubience.com>
 
 ADD supervisord.conf /etc/supervisor/supervisord.conf
-ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
-RUN echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
-    apk add --update php7 && apk add --no-cache supervisor
+RUN apk update && apk add --no-cache python py-pip && \
+    pip install supervisor
 
-ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]
+VOLUME /app
+
+ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/supervisord.conf"]
