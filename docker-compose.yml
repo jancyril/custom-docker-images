@@ -18,10 +18,14 @@ services:
     image: redis:alpine
     networks:
     - appnet
+  beanstalkd:
+     image: jancyril/beanstalkd
+     networks:
+     - appnet
   supervisor:
     image: jancyril/supervisor
     environment:
-      QUEUE_CONNECTION: redis
+      QUEUE_CONNECTION: beanstalkd
       TRIES: 1
       PROCESSES: 4
     volumes:
