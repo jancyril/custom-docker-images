@@ -9,7 +9,7 @@ services:
     networks:
     - appnet
   php:
-    image: jancyril/php:7.1-latest
+    image: jancyril/php:7.1-fpm
     volumes:
     - /home/jancyril/Code/jcms:/var/www/html
     networks:
@@ -20,6 +20,10 @@ services:
     - appnet
   supervisor:
     image: jancyril/supervisor
+    environment:
+      QUEUE_CONNECTION: redis
+      TRIES: 1
+      PROCESSES: 4
     volumes:
     - /home/jancyril/Code/jcms:/app
     networks:
@@ -58,9 +62,9 @@ services:
       - "8448:8448"
     environment:
       GIT_AUTHOR_NAME: Jan Cyril Segubience
-      GIT_AUTHOR_EMAIL: jancyrilsegubience@gmail.com
+      GIT_AUTHOR_EMAIL: jancyril@segubience.com
       GIT_COMMITTER_NAME: Jan Cyril Segubience
-      GIT_COMMITTER_EMAIL: jancyrilsegubience@gmail.com
+      GIT_COMMITTER_EMAIL: jancyril@segubience.com
     volumes:
       - /home/jancyril/Code/jcms:/var/www
       - /home/jancyril/.ssh:/root/.ssh
