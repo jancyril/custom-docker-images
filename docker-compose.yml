@@ -1,11 +1,12 @@
 version: '2'
 services:
   nginx:
-    image: jancyril/nginx:stable-alpine
+    image: nginx:stable-alpine
     ports:
     - "80:80"
     volumes:
     - /home/jancyril/Code/jcms:/var/www/html
+    - ./default.conf:/etc/nginx/conf.d/default.conf
     networks:
     - appnet
   php:
@@ -25,11 +26,11 @@ services:
   supervisor:
     image: jancyril/supervisor
     environment:
-      QUEUE_CONNECTION: beanstalkd
       TRIES: 1
       PROCESSES: 4
     volumes:
     - /home/jancyril/Code/jcms:/app
+    - ./supervisord.conf:/etc/supervisor/supervisord.conf
     networks:
     - appnet
   node:
