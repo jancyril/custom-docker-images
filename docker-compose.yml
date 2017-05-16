@@ -15,6 +15,11 @@ services:
     - /home/jancyril/Code/jcms:/var/www/html
     networks:
     - appnet
+  cli:
+    image: jancyril/php-cli
+    volumes:
+    - /home/jancyril/Code/jcms:/app
+    tty: true
   redis:
     image: redis:alpine
     networks:
