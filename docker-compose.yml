@@ -41,7 +41,7 @@ services:
     networks:
       - appnet
   node:
-    image: jancyril/node:stable-alpine
+    image: jancyril/node:6-slim
     volumes:
       - .:/var/www/html
     networks:
@@ -73,13 +73,13 @@ services:
     ports:
       - "8448:8448"
     environment:
-      GIT_AUTHOR_NAME: Jan Cyril Segubience
-      GIT_AUTHOR_EMAIL: jancyril@segubience.com
-      GIT_COMMITTER_NAME: Jan Cyril Segubience
-      GIT_COMMITTER_EMAIL: jancyril@segubience.com
+      GIT_AUTHOR_NAME: Full Name
+      GIT_AUTHOR_EMAIL: Email
+      GIT_COMMITTER_NAME: Full Name
+      GIT_COMMITTER_EMAIL: Email
     volumes:
       - .:/var/www
-      - /home/jancyril/.ssh:/root/.ssh
+      - /ssh/directory:/root/.ssh
     networks:
       - appnet
 networks:
