@@ -1,7 +1,7 @@
-FROM node:6-slim
+FROM node:6
 
-LABEL maintainer "Jan Cyril Segubience <jancyril@segubience.com>"
+LABEL maintainer="Jan Cyril Segubience <jancyril@segubience.com>"
 
 RUN npm install -g gulp bower
 
-WORKDIR /var/www/html
+WORKDIR /app

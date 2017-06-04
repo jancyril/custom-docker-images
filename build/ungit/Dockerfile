@@ -1,6 +1,6 @@
 FROM node:6-alpine
 
-LABEL maintainer "Jan Cyril Segubience <jancyril@segubience.com>"
+LABEL maintainer="Jan Cyril Segubience <jancyril@segubience.com>"
 
 RUN apk update && apk add --no-cache git openssh openrc tzdata && \
     cp /usr/share/zoneinfo/Asia/Manila /etc/localtime && \
@@ -10,6 +10,6 @@ RUN apk update && apk add --no-cache git openssh openrc tzdata && \
 
 EXPOSE 8448
 
-CMD ["ungit"]
+WORKDIR /app
 
-WORKDIR ["/var/www"]
+CMD ["ungit"]

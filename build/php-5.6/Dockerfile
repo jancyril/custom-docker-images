@@ -1,6 +1,6 @@
 FROM php:5.6-fpm-alpine
 
-LABEL maintainer "Jan Cyril Segubience <jancyril@segubience.com>"
+LABEL maintainer="Jan Cyril Segubience <jancyril@segubience.com>"
 
 RUN apk update && apk add --no-cache autoconf openssl-dev g++ make libmcrypt \
     libmcrypt-dev libpng-dev libxml2 libxml2-dev \

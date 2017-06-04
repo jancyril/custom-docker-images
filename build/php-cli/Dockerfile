@@ -1,6 +1,6 @@
 FROM php:7.1-alpine
 
-LABEL maintainer Jan Cyril Segubience <jancyril@segubience.com>
+LABEL maintainer="Jan Cyril Segubience <jancyril@segubience.com>"
 
 RUN docker-php-ext-install pdo_mysql \
 	&& php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
