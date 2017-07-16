@@ -8,5 +8,3 @@ RUN apk update && apk add --no-cache autoconf openssl-dev g++ make libmcrypt \
     && docker-php-ext-install gd mcrypt mbstring pdo_mysql xml xsl zip \
     && docker-php-ext-enable mongo \
     && apk del --purge autoconf openssl-dev g++ make
-
-USER www-data
