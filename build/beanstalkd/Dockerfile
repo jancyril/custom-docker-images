@@ -1,6 +1,6 @@
-FROM alpine:3.5
+FROM alpine:3
 
-LABEL maintainer="Jan Cyril Segubience <jancyril@segubience.com>"
+LABEL maintainer="JC Segubience <jc@segubience.com>"
 
 RUN apk update && apk add --no-cache beanstalkd
 
