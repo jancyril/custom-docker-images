@@ -14,4 +14,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql mbstring exif \
     && docker-php-ext-enable mcrypt
 
+USER www-data
+
 WORKDIR /var/www/html
